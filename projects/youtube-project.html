@@ -32,7 +32,7 @@
 
         <!-- Detalhes do projeto -->
         <section class="project-info-section">
-            <h1>Youtube Trending Videos</h1>
+            <h1>Vídeos em alta no YouTube</h1>
             
             <div class="project-meta">
                 <div class="meta-item">
@@ -46,11 +46,7 @@
                 </div>
                 <div class="meta-item">
                     <span class="meta-label">Descrição:</span>
-                    <span>Projeto de análise de vídeos em alta no YouTube entre Novembro de 2017 e Junho de 2018.</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Repositório:</span>
-                    <a href="#" class="project-link"><i class="fab fa-github fa-2x"></i></a>
+                    <span>Projeto de análise de vídeos em alta no YouTube entre Novembro de 2017 e Junho de 2018 dos seguintes países: Estados Unidos, Canadá, França, Reino Unido, Alemanha e Índia.</span>
                 </div>
             </div>
 
@@ -76,14 +72,15 @@
 
             <p>
                 Para o processo de ETL, usei a biblioteca pandas do Python em um notebook no Google Colab que pode ser acessado <a href="https://colab.research.google.com/drive/1R_asgWpESPJ1tz6z46l-xbJijkvLgDO-?usp=sharing" class="project-link">nesse link</a>.
-                Deixei instruções de cada passo antes dos blocos de código, é uma forma que eu uso para fixar conteúdo (explicando para mim mesma, basicamente). O notebook também está no repositório do GitHub, que disponibiliza uma visualização bacana de notebooks Python.
+                Deixei instruções de cada passo antes dos blocos de código, é uma forma que eu uso para fixar conteúdo (explicando para mim mesma, basicamente).
             </p>
         </section>
 
         <!-- Dashboard -->
         <h3>Dashboard</h3>
 
-        <iframe width="1000" height="738" src="https://lookerstudio.google.com/embed/reporting/87bfeb92-6018-4bf1-bfab-70b3301f6fd8/page/32mMF" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+        <p>É possível navegar pelas páginas do relatório no canto inferior esquerdo do dashboard.</p>
+        <iframe width="950" height="738" src="https://lookerstudio.google.com/embed/reporting/87bfeb92-6018-4bf1-bfab-70b3301f6fd8/page/32mMF" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
 
         <!-- Resultados da análise -->
         <section class="insights-section">
@@ -94,9 +91,9 @@
                     <li>Definitivamente, o vídeo mais popular nesse período foi o “Youtube Rewind: The Shape of 2017”, com 797,3 milhões de visualizações. Apesar disso, não foi o lançamento dessa Rewind que gerou o pico nas visualizações. O pico observado na série temporal foi em maio de 2018, justamente no lançamento de “This is America” de Childish Gambino. 
                         O conjunto poderoso da letra da música e do vídeo impactante, mas ao mesmo tempo divertido, abalaram a indústria da música e é até hoje considerado um marco. 
                         Em 2025, o vídeo soma quase 1 bilhão de visualizações e gerou discussões globais sobre racismo, violência e a cultura pop como forma de protesto. </li>
-                    <li>Maio de 2018 também foi importante para os fãs de k-pop, período do lançamento do hit “Fake Love” do grupo BTS (sinceramente, sou suspeita de falar). Na página onde analisamos os “likes e deslikes” (spoiler), podemos ver que esse é o vídeo mais curtido de todo o período analisado. Fãs de k-pop realmente amam seus ídolos!</li>
-                    <li>Quem mais assistiu vídeos foram os Canadenses, somando 20,4 bilhões de visualizações, mostrando que eles gostam de um YouTube.</li>
-                    <li>O gráfico de barras ao lado do mapa mostra quais canais tiveram a maior quantidade de vídeos em alta. Em destaque está o canal “Vikatan TV”, um canal de televisão que pertence ao grupo de mídia Ananda Vikatan, uma das maiores e mais antigas editoras de revistas em língua tamil na Índia.</li>
+                    <li>Maio de 2018 também foi importante para os fãs de k-pop, período do lançamento do hit “Fake Love” do grupo BTS (sinceramente, sou suspeita de falar, já que gosto muito de um k-pop). Na página onde analisamos os “likes e deslikes” (spoiler), podemos ver que esse é o vídeo mais curtido de todo o período analisado. Fãs de k-pop realmente amam seus ídolos!</li>
+                    <li>Quem mais assistiu a vídeos foram os canadenses, somando 20,4 bilhões de visualizações, mostrando que eles gostam de um YouTube.</li>
+                    <li>O gráfico de barras ao lado do mapa mostra quais canais tiveram a maior quantidade de vídeos em alta. Em destaque está o canal “Vikatan TV”, um canal oficial do YouTube vinculado ao Grupo Vikatan, uma das maiores empresas de mídia do Tamil Nadu, na Índia.</li>
                     
                 </ul>
             </div>
@@ -114,20 +111,21 @@
                 <h4><i class="fas fa-lightbulb"></i>Categorias x tags</h4>
                 <ul>
                     <li>A categoria com mais visualizações é “Music”, impulsionada pelos vídeos que já destacamos anteriormente. Logo em seguida, “Entertainment” soma uma grande quantidade de visualizações, já que são vídeos que estão frequentemente nos “trendings” do YouTube.</li>
-                    <li>Para calcular o engajamento, utilizei a seguinte medida: Engajamento = (Comentários * 2) + (Curtidas * 1) + (Deslikes * 0.5). Seguindo do maior peso para o menor:
+                    <li>Para calcular o engajamento médio, utilizei a seguinte medida: Engajamento = (Comentários * 2) + (Curtidas * 1) + (Deslikes * 0.5).
                         <ul>
                             <li>Comentários exigem mais envolvimento do público, portanto, atribuí o maior peso à essa variável.</li>
                             <li>Curtidas exigem menos esforço que comentários, logo atribuí um peso menor.</li>
-                            <li>O menor peso para os deslikes se justificam pelo fato de indicarem mais rejeição do que engajamento. Isso evita que um conteúdo polêmico (com muitos deslikes) apareça como "mais engajado" que um conteúdo positivo.</li>
+                            <li>Atribuir o menor peso para os deslikes se justifica pelo fato de indicarem mais rejeição do que engajamento. Isso evita que um conteúdo polêmico (com muitos deslikes) apareça como "mais engajado" que um conteúdo positivo. Afinal, esse cenário não reflete engajamento saudável.
+                                Imagine ver uma categoria classificada como "super engajada" e, ao checar, descobrir que tem mais vídeos com deslikes do que likes? Seria contraditório classificar como "bem-sucedido" um conteúdo que, na realidade, está sendo majoritariamente rejeitado pelo público.
+                            </li>
                         </ul>
                     </li>
-                    <li>Podemos observar que a categoria "Music" segue sendo a líder, tanto em visualizações quanto em engajamento. Já a categoria "Comedy" perde em visualizações de "Entertainment", mas ganha em engajamento.</li>
-                    <li>Na análise das tags, identificamos um padrão relevante: a maioria dos vídeos em alta não utiliza tags. Isso sugere que, no contexto específico dos vídeos em alta, as tags podem não ser um fator determinante para o alcance orgânico, possivelmente porque o impulso principal vem do tráfego recomendado pelo algoritmo do YouTube, não de buscas. No entanto, para vídeos fora do “trending”, 
+                    <li>Podemos observar que a categoria "Music" segue sendo a líder, tanto em visualizações quanto em engajamento. Já a categoria "Comedy" perde em visualizações de "Entertainment", mas ganha em engajamento, seguida de "Science & Technology" e "Gaming".</li>
+                    <li>Na análise das tags, identificamos um padrão relevante: a maioria dos vídeos em alta não utiliza tags. Isso sugere que, no contexto específico dos vídeos em alta, as tags podem não ser um fator determinante para o alcance orgânico, possivelmente porque o impulso principal vem do tráfego recomendado pelo algoritmo do YouTube, não de buscas - que é onde as tags se sobressaem. No entanto, para vídeos fora do “trending”, 
                     as tags continuam sendo importantes para SEO. Além disso, tags bem escolhidas ajudam o algoritmo a entender o contexto do conteúdo e fazer recomendações melhores.</li>
                 </ul>
             </div>
-            <h3>Conclusão</h3>
-            <p class="conclusion">
+            <p class="">
                 Obrigada por conferir esse projeto até o final! É um projeto simples, mas ao mesmo tempo enriquecedor. Analisar dados de diferentes contextos, saindo um 
                 pouco de “receita” e “performance”, é um hábito que me ajuda a ampliar e refinar minha interpretação dos dados e  minhas habilidades analíticas. 
                 Refiz esse dashboard muitas vezes, cada vez entendendo melhor os dados e construindo gráficos que realmente transmitem informações relevantes. 

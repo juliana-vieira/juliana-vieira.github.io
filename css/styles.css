@@ -220,7 +220,7 @@ p {
     border-radius: 8px;
     overflow: hidden;
     transition: all 0.2s ease;
-    height: 350px;
+    height: 500px;
     display: flex;
     flex-direction: column;
 }
@@ -235,8 +235,8 @@ p {
     height: 200px;
     overflow: hidden;
     display: flex;
-    border-radius: 8px; /* Bônus: cantos arredondados */
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Bônus: sombra */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
 }
 
 .project-image img {
@@ -265,7 +265,7 @@ p {
     align-items: center;
     gap: 0.5rem;
     margin-bottom: 1rem;
-    font-size: 1.2rem;
+    font-size: 1.0rem;
 }
 
 .project-info h4 i {

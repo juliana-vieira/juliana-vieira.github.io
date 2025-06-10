@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise de performance de entregas - App de Delivery</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/project-styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-links">
+                <a href="/index.html" class="nav-link">Home</a>
+                <a href="/index.html" class="nav-link">Projetos</a>
+                <a href="/index.html" class="nav-link">Contato</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="project-main">
+        <!-- Capa -->
+        <section class="project-hero">
+            <div class="hero-content">
+                <div class="hero-icon">
+                    <img src="/img/kpi-delivery-cover.png" alt="Youtube-project">
+                </div>
+            </div>
+        </section>
+
+        <!-- Detalhes do projeto -->
+        <section class="project-info-section">
+            <h1>Análise de performance de entregas - App de Delivery</h1>
+            
+            <div class="project-meta">
+                <div class="meta-item">
+                    <span class="tag">Dashboard</span>
+                    <span class="tag">Looker Studio</span>
+                    <span class="tag">Google Sheets</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Data:</span>
+                    <span>06/06/25</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Descrição:</span>
+                    <span>Projeto de análise de performance de entregas de um app de delivery nos principais bairros de São Paulo no período de maio de 2025.</span>
+                </div>
+            </div>
+
+            <!-- Introdução -->
+            <p class="project-description">
+                <section class="project-intro">
+                    <p><strong>O mundo dos KPIs!</strong></p>
+
+                    <p>Nesse projeto, pedi ao nosso querido ChatGPT (o qual irei me referir carinhosamente como Gepeto daqui pra frente) para fingir ser meu gerente e me solicitar uma análise de performance de entregas de um aplicativo de delivery.</p>
+
+                    <p>Estou criando o costume de usar a IA para simular problemas do mundo real para os meus estudos. Como não trabalho na área (ainda), não tenho a vivência de certos problemas reais de negócio. Essa prática é um bom uso da IA, de forma que você não pede somente a resposta pra ela, mas pede um problema e tenta resolvê-lo com seu conhecimento.</p>
+
+                    <p>Caso eu tenha alguma dificuldade com algum tópico, peço pra IA me dar algumas dicas, mas ainda fingindo ser meu gerente, como se ele estivesse mostrando o caminho para um Júnior desenvolver o restante sozinho.</p>
+
+                    <p>Segue abaixo o problema que o Gepeto me deu:</p>
+
+                    <p><h4>🎯 Objetivo do negócio:</h4></p>
+                    <p>O gerente quer melhorar a eficiência das entregas, pois estamos recebendo muitas reclamações sobre pedidos atrasados.</p>
+
+                    <p><h4>📈 Meta:</h4></p>
+                    <p>Reduzir o tempo médio de entrega para no máximo 35 minutos no prazo de 2 meses.</p>
+
+                    <p><h4>O que o gerente deseja saber com frequência:</h4></p>
+                    <ul style="padding-left: 20px;">
+                        <li>O tempo médio de entrega atual.</li>
+                        <li>Qual porcentagem dos pedidos está chegando no tempo ideal (≤ 35 minutos).</li>
+                        <li>Quais regiões da cidade estão com mais atrasos.</li>
+                        <li>Se o desempenho está melhorando ou piorando ao longo do tempo.</li>
+                    </ul>
+                    <br>
+                    <p>Ele também gerou uma base de dados fictícia com 200 linhas de dados que possuem as entregas nos bairros de São Paulo no mês de maio de 2025.</p>
+
+                    <p>Em um cenário real, eu provavelmente teria que fazer mais perguntas para o gerente, com o intuito de obter respostas bem definidas sobre o que ele deseja melhorar. Mas o nosso querido Gepeto é bem detalhista e já deu tudo de cara - tudo bem, é o jeitinho dele.
+                        Outro ponto a ser mencionado é que os dados já estavam tratados, só precisei inserir em uma planilha do Google Sheets e fazer algumas formatações. Em um cenário real, provavelmente eu precisaria fazer um processo de ETL antes de construir a análise. 
+                        No meu projeto de <a href="/projects/youtube-project.html" class="project-link">análise de vídeos em alta do YouTube</a>, precisei realizar um ETL e utilizei a biblioteca pandas do Python em um notebook no Google Colab. Fique à vontade para conferir e também sugerir melhorias!
+                    </p>
+                    
+                    <p>Por fim, seremos otimistas e assumiremos que essa meta estabelecida (35 minutos) não é apenas um número arbitrário, e sim fruto de uma análise de dados históricos que determinam que o tempo ideal deve ser de 35 minutos, rs.</p>
+
+                <section class="dashboard-section" aria-labelledby="dashboard-title">
+                    <h3 id="dashboard-title">Dashboard</h3>
+                    <div class="dashboard-container">
+                        <div class="dashboard-embed">
+                            <iframe title="Dashboard de KPIs de Delivery" width="890" height="700" src="https://lookerstudio.google.com/embed/reporting/e9a0f21f-74f4-4384-b515-bb363613b733/page/K8JNF" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="insights-section" aria-labelledby="analysis-title">
+                    <h3 id="analysis-title">Análise</h3>
+                    <div class="insight-item">
+                        <h4><i class="fas fa-lightbulb" aria-hidden="true"></i> O que podemos extrair dos gráficos?</h4>
+                        <ul>
+                            <li>A média global do tempo de entrega é de 38,3 minutos, um pouco acima da meta definida (35 minutos). Para endereçarmos isso, vamos realizar uma análise por bairros para conseguirmos agir na região onde o "gap" é maior.</li>
+                            <li>Analisando o ranking (tabela), podemos ver que todos os bairros possuem um tempo médio de entrega maior que a meta de 35 minutos. Se ordenarmos pelo tempo, observamos que os bairros com maior tempo são Tatuapé, Bela Vista, Moema e Liberdade.</li>
+                            <li>O gráfico de barras mostra os bairros com as maiores quantidades de atrasos, que são Liberdade, Vila Martana, Santana e Moema.</li>
+                            <li>O gráfico de pizza nos mostra que mais da metade das entregas foram atrasadas (utilizando a meta de 35 minutos). A meta pode ser modificada no campo de controle e os gráficos se ajustam automaticamente a nova meta.</li>
+                            <li>O gráfico de série temporal nos mostra a variação do tempo de entrega ao longo do mês. Resolvi utilizar a técnica de gráfico de controle para separar ruído de variações que realmente necessitam de atenção. Podemos ver que temos mais dias chegando perto ou ultrapassando o limite superior (6 dias) do que dias abaixo ou perto do limite inferior (4 dias). Isso indica que o processo de entregas não está com um bom desempenho e, para atingir a meta de 35 minutos, o processo deve ser revisado e mudado de forma fundamental. Para os demais dias, somente uma variação rotineira foi observada.</li>
+                            <li>Para a construção desse gráfico de controle utilizei a técnica dos percentis, pois os dados não seguem uma distribuição normal.
+                                <ul>
+                                    <li>O limite central é a média do tempo de entrega (linha laranja);</li>
+                                    <li>O limite superior é o 95º percentil (linha vermelha);</li>
+                                    <li>O limite inferior é o 5º percentil (linha verde).</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="action-section" aria-labelledby="actions-title">
+                    <h3 id="actions-title">Sugestões de ação</h3>
+                    <div class="insight-item">
+                        <h4><i class="fas fa-lightbulb" aria-hidden="true"></i> O que fazer agora?</h4>
+                        <ul>
+                            <li>Para atingir a meta de 35 minutos, é recomendado priorizar os bairros com os <strong>maiores atrasos</strong> e <strong>alto volume de entregas</strong>, como <strong>Liberdade</strong> (1º no ranking) e <strong>Moema</strong>. Como esses bairros impactam significativamente a média geral, otimizar seus tempos de entrega terá um <strong>efeito cascata</strong>, como a redução direta no tempo médio desses bairros e um impacto proporcional na média global devido ao seu peso no volume total. Algumas sugestões de investigações são: checar rotas ineficientes nesses bairros, congestionamento, falta de recursos locais, entre outros.</li>
+                            <li>O gráfico de série temporal nos mostra a variação do tempo de entrega durante todo o mês. O filtro de "ID Entregador" pode ajudar a identificar quais entregadores estão com a maior taxa de atrasos, e consequentemente aumentando a variação do tempo de entrega. Entregadores com <strong>alta variabilidade</strong> ou <strong>tempos consistentemente acima da média</strong> devem ser o foco de treinamento ou revisão de rotas, por exemplo.</li>
+                            <li>Por fim, uma análise dos pedidos entregues pelos entregadores com alta variabilidade pode ser útil para determinar se um atraso está realmente relacionado ao entregador ou ao tipo de pedido. Alguns pedidos podem ser naturalmente mais demorados (ex: combos grandes, lojas mais distantes, entre outros) e essa <strong>análise estratificada</strong> será mais precisa, já que ajuda a identificar a real causa raíz do atraso e reduz falsos positivos na identificação de entregadores que precisam de otimização.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="project-conclusion">
+                    <h3>Conclusão</h3>
+                    <p>Obrigada por conferir esse projeto até o final! O que mais me motivou a construir esse projeto foram os conceitos que aprendi recentemente no livro "Entendendo a Variação: A Chave para Administrar o Caos", de Donald J. Wheeler.</p>
+                    
+                    <p>Esse livro detalha muito bem como interpretar os dados e como separar ruído de sinais que realmente impactam o negócio. Encontrei esse livro nas <a href="https://heitorsasaki.notion.site/a67669d658a046e58e6fe02612d0c9e0?v=da4479a90c4341ca992fc343b2e4a98a&pvs=4" class="project-link" target="_blank">recomendações de livros do Heitor Sasaki</a>, o fundador do Data Creators e um grande nome da comunidade de dados. Assinei sua newsletter recentemente e tenho lido bastante as "Cartas do Sasaki" para encontrar dicas para iniciar na área de dados.</p>
+                    
+                    <p>Uma citação desse livro que eu vou levar pra vida a partir de agora:</p>
+                    
+                    <blockquote class="quote">
+                        "Muitos anos atrás, David Chambers encontrou o seguinte gráfico sequêncial na parede do escritório do presidente de uma fábrica de calçados. Havia ali uma apresentação simples e poderosa dos dados em um contexto. A legenda no eixo vertical era: 'Porcentagem Diária dos Pares com Defeitos':<br><br>
+                        <img src="/img/grafico-livro.png" alt="Gráfico de porcentagem diária de pares com defeitos" height="200" width="600"><br><br>
+                        Intrigado, David perguntou ao presidente por que ele tinha o gráfico na parede. O presidente, de modo condescendente, respondeu que fizera isso para que pudesse dizer como a fábrica estava se comportando.<br>
+                        David imediatamente respondeu: 'Diga-me como está a situação'.<br>
+                        Evidentemente, ninguém tivera a temeridade de perguntar isso ao presidente, porque ele parou, olhou para o gráfico na parede e então disse: 'Bem, alguns dias são melhores do que os outros!'"
+                    </blockquote>
+                    
+                    <p>Logo após isso, o livro detalha como construir um gráfico de controle para entender a diferença entre variações rotineiras e variações excepcionais do processo. Foi justamente esse tipo de gráfico que implementei nesse dashboard para entender a variação do tempo de entrega de forma mais precisa. Esse é um dos princípios fundamentais para entender que os dados <strong>variam</strong>, mesmo se o processo continuar o mesmo, e saber interpretar essas variações de forma correta e com base estatística é fundamental para tomar decisões que realmente beneficiam o negócio. <a href="https://www.youtube.com/watch?v=4CcgZXXIl7o&list=PLvlkVRRKOYFQGIZdz7BycJet9OncyXlbq" class="project-link" target="_blank">O curso de estatística básica do Téo Calvo</a> foi essencial para eu conseguir aplicar esses conceitos na prática! O curso é 100% gratuito e com qualidade altíssima, assim como todos os cursos do canal dele. A este ponto já vejo o Téo como figura paterna hahahaha</p>
+                    
+                    <p>Ainda não terminei de ler o livro que mencionei, mas após terminar os primeiros capítulos, fiquei ansiosa para colocar meu aprendizado em prática em um projeto, e esse foi o resultado 💜</p>
+                </section>
+        </section>
+
+        <!-- Recomendação de Música -->
+        <section class="music-section">
+            <p>Por fim, deixo abaixo uma recomendação da música que me acompanhou durante esse estudo!</p>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7hzSSb5g0D1OGd6PRVnq2F?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </section>
+    </main>
+
+    <footer>
+        <p>© Juliana Salustiano Vieira</p>
+    </footer>
+
+    <script src="/src/script.js"></script>
+</body>
+</html>

@@ -15,8 +15,8 @@
         <nav class="navbar">
             <div class="nav-links">
                 <a href="/index.html" class="nav-link">Home</a>
-                <a href="/index.html" class="nav-link">Projetos</a>
-                <a href="/index.html" class="nav-link">Contato</a>
+                <a href="/index.html" class="nav-link">Projects</a>
+                <a href="/index.html" class="nav-link">Contact</a>
             </div>
         </nav>
     </header>
@@ -33,59 +33,60 @@
 
         <!-- Detalhes do projeto -->
         <section class="project-info-section">
-            <h1>Análise de performance de entregas - App de Delivery</h1>
+            <h1>Food Delivery Performance Analysis</h1>
             
             <div class="project-meta">
                 <div class="meta-item">
                     <span class="tag">Dashboard</span>
                     <span class="tag">Looker Studio</span>
-                    <span class="tag">Google Sheets</span>
+                    <span class="tag">EN-US</span>
                 </div>
                 <div class="meta-item">
-                    <span class="meta-label">Data:</span>
+                    <span class="meta-label">Date:</span>
                     <span>06/06/25</span>
                 </div>
                 <div class="meta-item">
                     <span class="meta-label">Descrição:</span>
-                    <span>Projeto de análise de performance de entregas de um app de delivery nos principais bairros de São Paulo no período de maio de 2025.</span>
+                    <span>Performance analysis of a food delivery app across some of São Paulo's neighborhoods during May 2025, evaluating metrics to identify operational improvement opportunities.</span>
+                    <span>This analysis is written in English - US.</span>
                 </div>
             </div>
 
             <!-- Introdução -->
             <p class="project-description">
                 <section class="project-intro">
-                    <p><strong>O mundo dos KPIs!</strong></p>
+                    <p><strong>📊 The world of KPIs!</strong></p>
 
-                    <p>Nesse projeto, pedi ao nosso querido ChatGPT (o qual irei me referir carinhosamente como Gepeto daqui pra frente) para fingir ser meu gerente e me solicitar uma análise de performance de entregas de um aplicativo de delivery.</p>
+                    <p>In this project, I asked our beloved ChatGPT (which I'll affectionately call Geppetto from now on) to roleplay as my manager and request a performance analysis of a food delivery app from me.</p>
 
-                    <p>Estou criando o costume de usar a IA para simular problemas do mundo real para os meus estudos. Como não trabalho na área (ainda), não tenho a vivência de certos problemas reais de negócio. Essa prática é um bom uso da IA, de forma que você não pede somente a resposta pra ela, mas pede um problema e tenta resolvê-lo com seu conhecimento.</p>
+                    <p>I'm developing the habit of using AI to simulate real-world problems during my studies. Since I don't yet work in the field, I lack experience with certain business challenges. This approach represents a productive way to use AI: rather than just asking for answers, you request problems and attempt to solve them using your skills.</p>
 
-                    <p>Caso eu tenha alguma dificuldade com algum tópico, peço pra IA me dar algumas dicas, mas ainda fingindo ser meu gerente, como se ele estivesse mostrando o caminho para um Júnior desenvolver o restante sozinho.</p>
+                    <p>If I encounter challenges during project development, I ask the AI (still in its “manager” role) to provide guidance, mimicking how a senior would mentor a junior team member. This maintains the realistic simulation while offering constructive support.</p>
 
-                    <p>Segue abaixo o problema que o Gepeto me deu:</p>
+                    <p>Follow below the challenge that Geppetto presented me:</p>
 
-                    <p><h4>🎯 Objetivo do negócio:</h4></p>
-                    <p>O gerente quer melhorar a eficiência das entregas, pois estamos recebendo muitas reclamações sobre pedidos atrasados.</p>
+                    <p><h4>🎯 Business Objective:</h4></p>
+                    <p>The manager wants to improve the efficiency of the deliveries because we are receiving many complaints about late orders.</p>
 
-                    <p><h4>📈 Meta:</h4></p>
-                    <p>Reduzir o tempo médio de entrega para no máximo 35 minutos no prazo de 2 meses.</p>
+                    <p><h4>📈 Target:</h4></p>
+                    <p>Reduce the average delivery time to a maximum of 35 minutes within 2 months.</p>
 
-                    <p><h4>O que o gerente deseja saber com frequência:</h4></p>
+                    <p><h4>What the manager wants to know often:</h4></p>
                     <ul style="padding-left: 20px;">
-                        <li>O tempo médio de entrega atual.</li>
-                        <li>Qual porcentagem dos pedidos está chegando no tempo ideal (≤ 35 minutos).</li>
-                        <li>Quais regiões da cidade estão com mais atrasos.</li>
-                        <li>Se o desempenho está melhorando ou piorando ao longo do tempo.</li>
+                        <li>The current average delivery time.</li>
+                        <li>What percentage of orders are arriving in the ideal time (≤ 35 minutes).</li>
+                        <li>Which regions of the city have the most delays.</li>
+                        <li>Whether performance is getting better or worse over time.</li>
                     </ul>
                     <br>
-                    <p>Ele também gerou uma base de dados fictícia com 200 linhas de dados que possuem as entregas nos bairros de São Paulo no mês de maio de 2025.</p>
+                    <p>Geppetto also generated a fictitious database with 200 lines of data, containing deliveries in some neighborhoods of São Paulo in May 2025.</p>
 
-                    <p>Em um cenário real, eu provavelmente teria que fazer mais perguntas para o gerente, com o intuito de obter respostas bem definidas sobre o que ele deseja melhorar. Mas o nosso querido Gepeto é bem detalhista e já deu tudo de cara - tudo bem, é o jeitinho dele.
-                        Outro ponto a ser mencionado é que os dados já estavam tratados, só precisei inserir em uma planilha do Google Sheets e fazer algumas formatações. Em um cenário real, provavelmente eu precisaria fazer um processo de ETL antes de construir a análise. 
-                        No meu projeto de <a href="/projects/youtube-project.html" class="project-link">análise de vídeos em alta do YouTube</a>, precisei realizar um ETL e utilizei a biblioteca pandas do Python em um notebook no Google Colab. Fique à vontade para conferir e também sugerir melhorias!
+                    <p>In a real scenario, I would probably have to ask the manager more questions in order to get clear answers about what they want to improve, but our dear Geppetto is very detail-oriented and gave it to me straight - that's fine, it's his way.
+                        Another point to mention is that the data was already processed, I just needed to insert it into a Google Sheets spreadsheet and do some formatting. In a real scenario, I would probably need to do an ETL process before building the analysis.
+                        In my other project, <a href="/projects/youtube-project.html" class="project-link">YouTube Trending Videos Analysis</a>, I designed and implemented an ETL pipeline using Python's pandas library in Google Colab. Feel free to check it out and share any suggestions for improvement!
                     </p>
                     
-                    <p>Por fim, seremos otimistas e assumiremos que essa meta estabelecida (35 minutos) não é apenas um número arbitrário, e sim fruto de uma análise de dados históricos que determinam que o tempo ideal deve ser de 35 minutos, rs.</p>
+                    <p>Finally, we'll be optimistic and assume that this target (35 minutes) isn't just an arbitrary number, but the result of an analysis of historical data that determines that the ideal time should be 35 minutes, lol.</p>
 
                 <section class="dashboard-section" aria-labelledby="dashboard-title">
                     <h3 id="dashboard-title">Dashboard</h3>
@@ -97,20 +98,20 @@
                 </section>
 
                 <section class="insights-section" aria-labelledby="analysis-title">
-                    <h3 id="analysis-title">Análise</h3>
+                    <h3 id="analysis-title">Analysis</h3>
                     <div class="insight-item">
-                        <h4><i class="fas fa-lightbulb" aria-hidden="true"></i> O que podemos extrair dos gráficos?</h4>
+                        <h4><i class="fas fa-lightbulb" aria-hidden="true"></i> What can we learn from the graphics?</h4>
                         <ul>
-                            <li>A média global do tempo de entrega é de 38,3 minutos, um pouco acima da meta definida (35 minutos). Para endereçarmos isso, vamos realizar uma análise por bairros para conseguirmos agir na região onde o "gap" é maior.</li>
-                            <li>Analisando o ranking (tabela), podemos ver que todos os bairros possuem um tempo médio de entrega maior que a meta de 35 minutos. Se ordenarmos pelo tempo, observamos que os bairros com maior tempo são Tatuapé, Bela Vista, Moema e Liberdade.</li>
-                            <li>O gráfico de barras mostra os bairros com as maiores quantidades de atrasos, que são Liberdade, Vila Martana, Santana e Moema.</li>
-                            <li>O gráfico de pizza nos mostra que mais da metade das entregas foram atrasadas (utilizando a meta de 35 minutos). A meta pode ser modificada no campo de controle e os gráficos se ajustam automaticamente a nova meta.</li>
-                            <li>O gráfico de série temporal nos mostra a variação do tempo de entrega ao longo do mês. Resolvi utilizar a técnica de gráfico de controle para separar ruído de variações que realmente necessitam de atenção. Podemos ver que temos mais dias chegando perto ou ultrapassando o limite superior (6 dias) do que dias abaixo ou perto do limite inferior (4 dias). Isso indica que o processo de entregas não está com um bom desempenho e, para atingir a meta de 35 minutos, o processo deve ser revisado e mudado de forma fundamental. Para os demais dias, somente uma variação rotineira foi observada.</li>
-                            <li>Para a construção desse gráfico de controle utilizei a técnica dos percentis, pois os dados não seguem uma distribuição normal.
+                            <li>The overall average delivery time is 38.3 minutes, slightly above the target set (35 minutes). To address this, we are going to carry out an analysis by neighborhood so that we can act in the region where the “gap” is greatest.</li>
+                            <li>Looking at the ranking (table), we can see that all the neighborhoods have an average delivery time greater than the target of 35 minutes. If we sort by time, we see that the neighborhoods with the longest delivery times are Tatuapé, Bela Vista, Moema and Liberdade.</li>
+                            <li>The bar chart shows the neighborhoods with the most delays, which are Liberdade, Vila Mariana, Santana and Moema.</li>
+                            <li>The pie chart shows us that more than half of the deliveries were late (using the target of 35 minutes). You can change the target in the control field and the graphs will automatically adjust to the new target.</li>
+                            <li>The time series graph shows us the variation in delivery time over the month. I decided to use the control chart technique to separate noise from variations that really need attention. We can see that there are more days close to or exceeding the upper limit (6 days) than there are days below or close to the lower limit (4 days). This indicates that the delivery process is not performing well and, in order to achieve the 35-minute target, the process must be reviewed and fundamentally changed. For the other days, only a routine variation was observed.</li>
+                            <li>To construct this control chart, I used the percentile technique, as the data does not follow a normal distribution.
                                 <ul>
-                                    <li>O limite central é a média do tempo de entrega (linha laranja);</li>
-                                    <li>O limite superior é o 95º percentil (linha vermelha);</li>
-                                    <li>O limite inferior é o 5º percentil (linha verde).</li>
+                                    <li>The central limit is the average delivery time (orange line);</li>
+                                    <li>The upper limit is the 95th percentile (red line);</li>
+                                    <li>The lower limit is the 5th percentile (green line).</li>
                                 </ul>
                             </li>
                         </ul>
@@ -118,42 +119,42 @@
                 </section>
 
                 <section class="action-section" aria-labelledby="actions-title">
-                    <h3 id="actions-title">Sugestões de ação</h3>
+                    <h3 id="actions-title">Suggestions for action</h3>
                     <div class="insight-item">
-                        <h4><i class="fas fa-lightbulb" aria-hidden="true"></i> O que fazer agora?</h4>
+                        <h4><i class="fas fa-lightbulb" aria-hidden="true"></i> What do to now?</h4>
                         <ul>
-                            <li>Para atingir a meta de 35 minutos, é recomendado priorizar os bairros com os <strong>maiores atrasos</strong> e <strong>alto volume de entregas</strong>, como <strong>Liberdade</strong> (1º no ranking) e <strong>Moema</strong>. Como esses bairros impactam significativamente a média geral, otimizar seus tempos de entrega terá um <strong>efeito cascata</strong>, como a redução direta no tempo médio desses bairros e um impacto proporcional na média global devido ao seu peso no volume total. Algumas sugestões de investigações são: checar rotas ineficientes nesses bairros, congestionamento, falta de recursos locais, entre outros.</li>
-                            <li>O gráfico de série temporal nos mostra a variação do tempo de entrega durante todo o mês. O filtro de "ID Entregador" pode ajudar a identificar quais entregadores estão com a maior taxa de atrasos, e consequentemente aumentando a variação do tempo de entrega. Entregadores com <strong>alta variabilidade</strong> ou <strong>tempos consistentemente acima da média</strong> devem ser o foco de treinamento ou revisão de rotas, por exemplo.</li>
-                            <li>Por fim, uma análise dos pedidos entregues pelos entregadores com alta variabilidade pode ser útil para determinar se um atraso está realmente relacionado ao entregador ou ao tipo de pedido. Alguns pedidos podem ser naturalmente mais demorados (ex: combos grandes, lojas mais distantes, entre outros) e essa <strong>análise estratificada</strong> será mais precisa, já que ajuda a identificar a real causa raíz do atraso e reduz falsos positivos na identificação de entregadores que precisam de otimização.</li>
+                            <li>In order to achieve the 35-minute target, it is recommended to prioritize the neighborhoods with <strong>the longest delays</strong> and <strong>highest delivery volumes</strong>, such as <strong>Liberdade</strong> (1st in the ranking) and <strong>Moema</strong>. As these neighborhoods significantly impact the overall average, optimizing their delivery times will have a <strong>cascading effect</strong>, directly reducing their local averages while proportionally improving the global metric due to their weight in the total volume. Some suggestions for investigations are: checking for inefficient routes in these neighborhoods, congestion, lack of local resources, among others.</li>
+                            <li>The time series graph shows us the variation in delivery time throughout the month. The “Deliverer ID” filter can help identify which deliverers are experiencing the highest rate of delays, and consequently increasing delivery time variation. Deliverers with <strong>high variability</strong> or <strong>consistently above-average times</strong> should be the focus of training or route reviews, for example.</li>
+                            <li>Finally, an analysis of orders delivered by deliverers with high variability can be useful in determining whether a delay is really related to the deliverer or the type of order. Some orders may naturally take longer (e.g. large combos, more distant stores, among others) and this <strong>stratified analysis</strong> will be more accurate, as it helps to identify the real root cause of the delay and reduces false positives in identifying deliverers who need optimization.</li>
                         </ul>
                     </div>
                 </section>
 
                 <section class="project-conclusion">
-                    <h3>Conclusão</h3>
-                    <p>Obrigada por conferir esse projeto até o final! O que mais me motivou a construir esse projeto foram os conceitos que aprendi recentemente no livro "Entendendo a Variação: A Chave para Administrar o Caos", de Donald J. Wheeler.</p>
+                    <h3>Conclusion</h3>
+                    <p>Thank you for checking out this project to the end! What motivated me most to build this project were the concepts I recently learned from the book “Understanding Variation: The Key to Managing Chaos”, by Donald J. Wheeler.</p>
                     
-                    <p>Esse livro detalha muito bem como interpretar os dados e como separar ruído de sinais que realmente impactam o negócio. Encontrei esse livro nas <a href="https://heitorsasaki.notion.site/a67669d658a046e58e6fe02612d0c9e0?v=da4479a90c4341ca992fc343b2e4a98a&pvs=4" class="project-link" target="_blank">recomendações de livros do Heitor Sasaki</a>, o fundador do Data Creators e um grande nome da comunidade de dados. Assinei sua newsletter recentemente e tenho lido bastante as "Cartas do Sasaki" para encontrar dicas para iniciar na área de dados.</p>
+                    <p>This book goes into great detail about how to interpret data and how to separate noise from signals that really impact the business. I found this book in the <a href="https://heitorsasaki.notion.site/a67669d658a046e58e6fe02612d0c9e0?v=da4479a90c4341ca992fc343b2e4a98a&pvs=4" class="project-link" target="_blank">Heitor Sasaki's book recommendations</a>, the founder of "Data Creators" and a big name in the data community. I recently subscribed to his newsletter and have been reading a lot of “Sasaki's Letters” to find tips for getting started in the data field. The content is in Portuguese - BR.</p>
                     
-                    <p>Uma citação desse livro que eu vou levar pra vida a partir de agora:</p>
+                    <p>A quote from this book that I'm going to take with me from now on:</p>
                     
                     <blockquote class="quote">
-                        "Muitos anos atrás, David Chambers encontrou o seguinte gráfico sequêncial na parede do escritório do presidente de uma fábrica de calçados. Havia ali uma apresentação simples e poderosa dos dados em um contexto. A legenda no eixo vertical era: 'Porcentagem Diária dos Pares com Defeitos':<br><br>
+                        "Many years ago, David Chambers found the following sequence chart on the wall of the office of the president of a shoe factory. It was a simple and powerful presentation of data in context. The legend on the vertical axis was: ‘Daily Percentage of Pairs with Defects’:<br><br>
                         <img style="max-width: 100%; height: auto;" src="/img/grafico-livro.png" alt="Gráfico de porcentagem diária de pares com defeitos" height="200" width="600"><br><br>
-                        Intrigado, David perguntou ao presidente por que ele tinha o gráfico na parede. O presidente, de modo condescendente, respondeu que fizera isso para que pudesse dizer como a fábrica estava se comportando.<br>
-                        David imediatamente respondeu: 'Diga-me como está a situação'.<br>
-                        Evidentemente, ninguém tivera a temeridade de perguntar isso ao presidente, porque ele parou, olhou para o gráfico na parede e então disse: 'Bem, alguns dias são melhores do que os outros!'"
+                        Intrigued, David asked the chairman why he had the graph on the wall. The chairman condescendingly replied that he had done this so that he could tell how the factory was performing.<br>
+                        David immediately replied: 'Tell me what the situation is.'<br>
+                        Evidently, no one had the temerity to ask the president that, because he stopped, looked at the graph on the wall and then said: ‘Well, some days are better than others!’"
                     </blockquote>
                     
-                    <p>Logo após isso, o livro detalha como construir um gráfico de controle para entender a diferença entre variações rotineiras e variações excepcionais do processo. Foi justamente esse tipo de gráfico que implementei nesse dashboard para entender a variação do tempo de entrega de forma mais precisa. Esse é um dos princípios fundamentais para entender que os dados <strong>variam</strong>, mesmo se o processo continuar o mesmo, e saber interpretar essas variações de forma correta e com base estatística é fundamental para tomar decisões que realmente beneficiam o negócio. <a href="https://www.youtube.com/watch?v=4CcgZXXIl7o&list=PLvlkVRRKOYFQGIZdz7BycJet9OncyXlbq" class="project-link" target="_blank">O curso de estatística básica do Téo Calvo</a> foi essencial para eu conseguir aplicar esses conceitos na prática! O curso é 100% gratuito e com qualidade altíssima, assim como todos os cursos do canal dele. A este ponto já vejo o Téo como figura paterna hahahaha</p>
+                    <p>Right after that, the book details how to build a control chart to understand the difference between routine variations and exceptional variations in the process. It was just this type of chart that I implemented in this dashboard to understand the variation in delivery time more precisely. This is one of the fundamental principles for understanding that data <strong>will vary</strong>, even if the process remains the same, and knowing how to interpret these variations correctly and on a statistical basis is fundamental for making decisions that really benefit the business. <a href="https://www.youtube.com/watch?v=4CcgZXXIl7o&list=PLvlkVRRKOYFQGIZdz7BycJet9OncyXlbq" class="project-link" target="_blank">The Basic Statistics course by Téo Calvo</a> was essential for me to be able to apply these concepts in practice! The course is 100% free and of the highest quality, as are all the courses on his channel. The content is in Portuguese - BR. At this point I already see Téo as a father figure 🤣🤣</p>
                     
-                    <p>Ainda não terminei de ler o livro que mencionei, mas após terminar os primeiros capítulos, fiquei ansiosa para colocar meu aprendizado em prática em um projeto, e esse foi o resultado 💜</p>
+                    <p>I haven't finished reading the book I mentioned, but after finishing the first few chapters, I was eager to put my learning into practice on a project, and this was the result 💜</p>
                 </section>
         </section>
 
         <!-- Recomendação de Música -->
         <section class="music-section">
-            <p>Por fim, deixo abaixo uma recomendação da música que me acompanhou durante esse estudo!</p>
+            <p>Following the tradition, I leave below a recommendation of the music that accompanied me during this study!</p>
             <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7hzSSb5g0D1OGd6PRVnq2F?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </section>
     </main>

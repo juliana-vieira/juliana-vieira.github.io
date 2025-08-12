@@ -54,15 +54,42 @@
                     <span><a href="https://github.com/juliana-vieira/web-scraping-ffxiv-arms" class="project-link" target="_blank">https://github.com/juliana-vieira/web-scraping-ffxiv-arms</a></span>
                 </div>
             </div>
-
-            <!-- Introdução -->
-            <p class="project-description">
         </section>
+        <!-- Introdução -->
+            <p class="project-description">
+                <p><strong>O Python chegou a Eorzea! 🐍</strong></p>
+                <p>Nesse projeto, resolvi unir o estudo com o lazer: desenvolvi um script de web scraping utilizando BeautifulSoup e Python para extração de dados de armas do MMORPG Final Fantasy XIV, um dos meus jogos favoritos. Os dados estão disponíveis no <a href="https://na.finalfantasyxiv.com/lodestone/playguide/db/item/?category2=1" class="project-link" target="_blank">Eorzea Database</a>.</p>
 
-        <!-- Resultados da análise -->
-        <section class="insights-section">
-            
+                <p>Durante meus estudos de Engenharia de Dados, sempre tive dúvidas sobre temas de projetos, ainda mais relacionados a extração de dados. Portanto, pensei que seria interessante utilizar dados de fontes que eu conheço bem e que podem me trazer insights para minha própria rotina no jogo.</p>
 
+                <p>Para esse pipeline escolhi a base de armas, o item mais cobiçado de qualquer jogo de RPG. Extraí informações essenciais que podem ser utilizadas para ranquear as armas por diversos critérios, como dano, raridade, etc.</p>
+
+                <p><strong>Informações extraídas:</strong></p>
+
+                <ul style="padding-left: 20px;">
+                    <li>Nome da arma;</li>
+                    <li>Nível da arma;</li>
+                    <li>Nível mínimo para uso;</li>
+                    <li>Classe(s) que pode(m) usar;</li>
+                    <li>Tipo da arma (espada, cajado, lança...)</li>
+                    <li>Atributos principais (Strength, Vitality, Mind...);</li>
+                    <li>Dano físico / Auto-ataque / Delay;</li>
+                    <li>Raridade (com base na cor do contorno do ícone);</li>
+                    <li>Fonte do item (ex: vendido por NPC, obtido por coffer, comprado com tomestones...).</li>
+                </ul>
+                <br>
+                <p>Um dos desafios que enfrentei durante o desenvolvimento desse projeto foi relacionado a volumetria de dados. O Eorzea Database possui 5872 itens, separados em 118 páginas. Utilizando apenas laços de repetição, meu pipeline estava com problemas de performance, chegando a demorar mais de 30 minutos para extrair todos os dados.</p>
+                <p>Diante disso, pesquisei por alternativas e encontrei algumas soluções que aumentaram drasticamente a performance do meu script:</p>
+                <ul style="padding-left: 20px;">
+                    <li><strong>Utilização de cache com persistência em disco</strong> para evitar re-scraping desnecessário;</li>
+                    <br>
+                        <img src="/img/code/code-ffxiv1.png" alt="Código configuração de cache" style="border-radius: 10px;">
+                    <br><br>
+                    <li><strong>Paralelização</strong> para processar os loops mais rapidamente;</li>
+                    <br>
+                        <img src="/img/code/code-ffxiv2.png" alt="Código paralelização" style="border-radius: 10px;">
+                </ul>
+            </p>
         <!-- Recomendação de Música -->
         <section class="music-section">
         </section>

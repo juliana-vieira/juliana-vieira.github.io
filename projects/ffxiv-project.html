@@ -79,15 +79,227 @@
                 </ul>
                 <br>
                 <p>Um dos desafios que enfrentei durante o desenvolvimento desse projeto foi relacionado a volumetria de dados. O Eorzea Database possui 5872 itens, separados em 118 páginas. Utilizando apenas laços de repetição, meu pipeline estava com problemas de performance, chegando a demorar mais de 30 minutos para extrair todos os dados.</p>
+                <p>Outro ponto a se mencionar é que o robots.txt do Eorzea Database não determina nenhum bloqueio, o que me permite rodar o script sem delays. Apesar disso, evito rodar o scraping com frequência para não sobrecarregar o servidor do Lodestone.</p>
                 <p>Diante disso, pesquisei por alternativas e encontrei algumas soluções que aumentaram drasticamente a performance do meu script:</p>
                 <ul style="padding-left: 20px;">
                     <li><strong>Utilização de cache com persistência em disco</strong> para evitar re-scraping desnecessário;</li>
                     <br>
-                        <img src="/img/code/code-ffxiv1.png" alt="Código configuração de cache" style="border-radius: 10px;">
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>Configuração de cache</span>
+                            <button class="copy-button" onclick="copyCode()">Copy</button>
+                        </div>
+                        <div class="code-content" id="codeContent">
+                            <div class="line">
+                                <span class="line-number">1</span>
+                                <span class="line-content"><span class="keyword">try</span>:</span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">2</span>
+                                <span class="line-content">    requests_cache.<span class="function">install_cache</span>(</span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">3</span>
+                                <span class="line-content">        <span class="string">'../ffxiv_cache'</span>, <span class="comment"># Cria um diretório chamado 'ffxiv_cache'.</span></span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">4</span>
+                                <span class="line-content">        backend=<span class="string">'filesystem'</span>, <span class="comment"># Armazena o cache no disco.</span></span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">5</span>
+                                <span class="line-content">        expire_after=NEVER_EXPIRE, <span class="comment"># Cache setado para não expirar.</span></span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">6</span>
+                                <span class="line-content">        allowable_methods=[<span class="string">'GET'</span>], <span class="comment"># Métodos permitidos no cache.</span></span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">7</span>
+                                <span class="line-content">        include_get_headers=<span class="keyword">True</span> <span class="comment"># Considera os cabeçalhos da requisição no cache.</span></span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">8</span>
+                                <span class="line-content">    )</span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">9</span>
+                                <span class="line-content">    <span class="builtin">print</span>(<span class="string">"Cache configurado."</span>)</span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">10</span>
+                                <span class="line-content"><span class="keyword">except</span> <span class="builtin">Exception</span> <span class="keyword">as</span> e:</span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">11</span>
+                                <span class="line-content">    <span class="builtin">print</span>(<span class="string">f"Erro: {str(e)}"</span>)</span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">12</span>
+                                <span class="line-content"></span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">14</span>
+                                <span class="line-content"><span class="keyword">try</span>:</span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">15</span>
+                                <span class="line-content">    <span class="keyword">with</span> requests_cache.<span class="function">CachedSession</span>() <span class="keyword">as</span> session:</span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">16</span>
+                                <span class="line-content">         session.headers.<span class="function">update</span>(headers)</span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">17</span>
+                                <span class="line-content">    <span class="builtin">print</span>(<span class="string">"Sessão configurada."</span>)</span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">18</span>
+                                <span class="line-content"><span class="keyword">except</span> <span class="builtin">Exception</span> <span class="keyword">as</span> e:</span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">19</span>
+                                <span class="line-content">    <span class="builtin">print</span>(<span class="string">f"Erro: {str(e)}"</span>)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="notification" id="notification">Code copied to clipboard!</div>
+
                     <br><br>
                     <li><strong>Paralelização</strong> para processar os loops mais rapidamente;</li>
                     <br>
-                        <img src="/img/code/code-ffxiv2.png" alt="Código paralelização" style="border-radius: 10px;">
+                    <div class="code-container">
+                        <div class="code-header">
+                            <span>processar_armas.py</span>
+                            <button class="copy-button" onclick="copyCode()">Copy</button>
+                        </div>
+                        <div class="code-content" id="codeContent">
+                            <div class="line">
+                                <span class="line-number">1</span>
+                                <span class="line-content"><span class="comment"># Utilizando a classe Parallel da biblioteca joblib do Python para</span></span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">2</span>
+                                <span class="line-content"><span class="comment"># processar a extração dos dados usando 8 núcleos da CPU, preparando cada</span></span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">3</span>
+                                <span class="line-content"><span class="comment"># execução (sem executar imediatamente)</span></span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">4</span>
+                                <span class="line-content"></span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">5</span>
+                                <span class="line-content"><span class="keyword">def</span> <span class="function">processar_armas</span>(urls_itens):</span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">6</span>
+                                <span class="line-content"></span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">7</span>
+                                <span class="line-content">    urls_itens = <span class="builtin">list</span>(<span class="builtin">set</span>(urls_itens))</span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">8</span>
+                                <span class="line-content">    resultados = <span class="function">Parallel</span>(n_jobs=<span class="number">8</span>)(<span class="function">delayed</span>(extrair_infos_arma)(url) <span class="keyword">for</span> url <span class="keyword">in</span> urls_itens)</span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">9</span>
+                                <span class="line-content">    <span class="keyword">return</span> [r <span class="keyword">for</span> r <span class="keyword">in</span> resultados <span class="keyword">if</span> r <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>]</span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">10</span>
+                                <span class="line-content">    </span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">11</span>
+                                <span class="line-content"><span class="comment"># Utilizando a classe ThreadPoolExecutor da biblioteca concurrent.futures</span></span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">12</span>
+                                <span class="line-content"><span class="comment"># para criar um pool de 10 threads, onde o executor.submit irá enviar</span></span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">13</span>
+                                <span class="line-content"><span class="comment"># a função processar_pagina, com cada URL, para uma thread livre.</span></span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">14</span>
+                                <span class="line-content"></span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">15</span>
+                                <span class="line-content"><span class="comment"># Por exemplo, se houverem 100 URLs, 10 serão processadas imediatamente </span></span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">16</span>
+                                <span class="line-content"><span class="comment"># (1 por thread), e as demais aguardarão em uma fila.</span></span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">17</span>
+                                <span class="line-content"></span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">18</span>
+                                <span class="line-content"><span class="keyword">with</span> <span class="function">ThreadPoolExecutor</span>(max_workers=<span class="number">10</span>) <span class="keyword">as</span> executor:</span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">19</span>
+                                <span class="line-content">    futures = [executor.<span class="function">submit</span>(processar_pagina, url) <span class="keyword">for</span> url <span class="keyword">in</span> urls_paginas]</span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">20</span>
+                                <span class="line-content">	   </span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">21</span>
+                                <span class="line-content">	  <span class="comment"># Aqui, os resultados são coletados assim que a execução termina </span></span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">22</span>
+                                <span class="line-content">	  <span class="comment"># (método as_completed).           </span></span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">23</span>
+                                <span class="line-content">    <span class="keyword">for</span> future <span class="keyword">in</span> <span class="function">tqdm</span>(<span class="function">as_completed</span>(futures), total=<span class="builtin">len</span>(futures)):</span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">24</span>
+                                <span class="line-content">        resultado = future.<span class="function">result</span>()</span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">25</span>
+                                <span class="line-content">        <span class="keyword">if</span> resultado:</span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">26</span>
+                                <span class="line-content">            dados_completos.<span class="function">extend</span>(resultado)              </span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">27</span>
+                                <span class="line-content"></span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">28</span>
+                                <span class="line-content"></span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">29</span>
+                                <span class="line-content">df = pd.<span class="function">DataFrame</span>(dados_completos)</span>
+                            </div>
+                            <div class="line">
+                                <span class="line-number">30</span>
+                                <span class="line-content"><span class="builtin">print</span>(<span class="string">f"Finalizado! {len(df)} itens obtidos."</span>)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="notification" id="notification">Code copied to clipboard!</div>
                 </ul>
             </p>
         <!-- Recomendação de Música -->

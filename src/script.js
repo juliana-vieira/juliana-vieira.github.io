@@ -1,3 +1,50 @@
+function copyCode() {
+  const codeLines = document.querySelectorAll(".line-content")
+  const codeText = Array.from(codeLines)
+    .map((line) => line.textContent)
+    .join("\n")
+
+  navigator.clipboard
+    .writeText(codeText)
+    .then(() => {
+      showNotification()
+      updateCopyButton()
+    })
+    .catch((err) => {
+      console.error("Failed to copy code: ", err)
+    })
+}
+
+function showNotification() {
+  const notification = document.getElementById("notification")
+  notification.classList.add("show")
+
+  setTimeout(() => {
+    notification.classList.remove("show")
+  }, 2000)
+}
+
+function updateCopyButton() {
+  const button = document.querySelector(".copy-button")
+  const originalText = button.textContent
+
+  button.textContent = "Copied!"
+  button.classList.add("copied")
+
+  setTimeout(() => {
+    button.textContent = originalText
+    button.classList.remove("copied")
+  }, 2000)
+}
+
+// Add keyboard shortcut for copying (Ctrl+C or Cmd+C)
+document.addEventListener("keydown", (e) => {
+  if ((e.ctrlKey || e.metaKey) && e.key === "c" && !window.getSelection().toString()) {
+    e.preventDefault()
+    copyCode()
+  }
+})
+
 // Smooth scrolling for navigation links
 document.addEventListener('DOMContentLoaded', function() {
     // Handle navigation link clicks
@@ -130,3 +177,4 @@ document.addEventListener('DOMContentLoaded', function() {
     // Set initial active link
     setInitialActiveLink();
 });
+
